@@ -8,7 +8,7 @@ import { getIssues } from './api';
 /* start */
 
 document.addEventListener('DOMContentLoaded', () => {
-  riot.mount('app');
+  riot.mount('app', {store});
 
   store.subscribe(() => console.log('New state', store.getState()));
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(2);
   store.dispatch({type: 'INCREASE_COUNTER'});
   console.log(3);
-  store.dispatch({type: 'RESET_COUNTER'});
+  // store.dispatch({type: 'RESET_COUNTER'});
   console.log(4);
   store.dispatch({type: 'UNKNOWN'});
   console.log(5);
