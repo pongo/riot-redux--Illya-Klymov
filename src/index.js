@@ -20,5 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(4);
   store.dispatch({type: 'UNKNOWN'});
   console.log(5);
+  store.dispatch({
+    type: 'LOAD_ISSUED',
+    payload: [
+      {id: 1, name: 'First issue'},
+      {id: 2, name: 'Second issue'},
+    ]
+  });
 });
 

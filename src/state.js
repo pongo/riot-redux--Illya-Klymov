@@ -11,6 +11,8 @@ function reducer(state, action) {
       return {...state, ...{counter: (state.counter + 1)}};
     case 'RESET_COUNTER':
       return {...state, ...{counter: 0}};
+    case 'LOAD_ISSUED':
+      return {...state, ...{issues: action.payload}};
     default:
       return state;
   }
