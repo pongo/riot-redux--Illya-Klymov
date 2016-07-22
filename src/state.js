@@ -1,20 +1,12 @@
 import { createStore } from 'redux';
+import counterReducer from './redux/reducers/counter-reducer';
+import issuesReducer from './redux/reducers/issues-reducer';
 
 function reducer(state, action) {
-  switch (action.type) {
-    case 'INCREASE_COUNTER':
-      /*
-      Обе конструкции транспилируются в одинаковый код (пример: < http://bit.ly/2amoiCC >):
-      - {...state, ...{counter: (state.counter + 1)}}
-      - {...state, counter: (state.counter + 1)}
-      */
-      return {...state, ...{counter: (state.counter + 1)}};
-    case 'RESET_COUNTER':
-      return {...state, ...{counter: 0}};
-    case 'LOAD_ISSUED':
-      return {...state, ...{issues: action.payload}};
-    default:
-      return state;
+  return {
+    repository: state.repository,
+    counter: counterReducer(state.counter, action),
+    issues: issuesReducer(state.issues, action)
   }
 }
 
