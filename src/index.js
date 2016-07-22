@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
   store.dispatch({
     type: 'PROMISE',
     actions: ['ISSUES_LOADING', 'ISSUES_LOADED', 'ISSUES_LOAD_FAILURE'],
-    promise: getIssues()
+    promise: getIssues()  // т.к. здесь указано getIssues() со скобочками, то
+                          // эта функция запускается сразу же.
+                          // чтобы запускалась только при запросе нужно удалить скобочки ()
   });
 });
 
