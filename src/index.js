@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import './tags/app.tag';
 
 import store from './state';
+import fetch from 'isomorphic-fetch';
 
 /* start */
 
@@ -29,3 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+fetch('https://api.github.com/repos/Yomguithereal/baobab/issues')
+  .then((r) => r.json())
+  .then(::console.log)
+;
