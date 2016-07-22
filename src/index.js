@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import './tags/app.tag';
 
 import store from './state';
+import { getIssues } from './api';
 
 /* start */
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {id: 2, name: 'Second issue'},
     ]
   });
+  store.dispatch(getIssues());
 });
 
 

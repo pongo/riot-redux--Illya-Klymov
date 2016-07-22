@@ -1,9 +1,11 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import * as reducers from './redux/reducers';
+import promisesMiddleware from './redux/middlewares/promises-middleware';
 
 const reducer = combineReducers(reducers);
+let createStoreWithMiddleware = applyMiddleware(promisesMiddleware)(createStore);
 
-const store = createStore(reducer, {
+const store = createStoreWithMiddleware(reducer, {
   issues: [],
   repository: '',
   counter: 0,
