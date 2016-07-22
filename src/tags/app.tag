@@ -1,14 +1,11 @@
 <app>
 
-  <p>Counter: {state.counter}</p>
+  <p>Counter: {counter}</p>
 
   <script type="babel">
     const store = this.opts.store;
-    this.state = store.getState();
-    this.counter = this.state.counter || 0;
-
     store.subscribe(() => {
-      this.state = store.getState();
+      this.counter = store.getState().counter;
       this.update();
     });
   </script>
