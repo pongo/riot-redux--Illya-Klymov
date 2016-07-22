@@ -1,6 +1,7 @@
 <app>
 
   <p>Counter: {counter}</p>
+  <with-mixin></with-mixin>
 
   <script type="babel">
     const store = this.opts.store;

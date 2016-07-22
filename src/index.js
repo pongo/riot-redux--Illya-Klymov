@@ -1,13 +1,17 @@
 import 'babel-polyfill';
 
 import './tags/app.tag';
+import './tags/with-mixin.tag';
 
 import store from './state';
 import { getIssues } from './api';
 
+import riotReduxMixin from 'riot-redux-mixin';
+
 /* start */
 
 document.addEventListener('DOMContentLoaded', () => {
+  riot.mixin('redux', riotReduxMixin(store));
   riot.mount('app', {store});
 
   store.subscribe(() => console.log('New state', store.getState()));
