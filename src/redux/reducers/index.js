@@ -1,5 +1,11 @@
 import counter from './counter-reducer';
-import issues from './issues-reducer';
 
 export {counter};
-export {issues};
+export function issues(state = [], action) {
+  switch (action.type) {
+    case 'LOAD_ISSUED':
+      return action.payload;
+    default:
+      return state;
+  }
+}
