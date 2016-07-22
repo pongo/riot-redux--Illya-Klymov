@@ -1,6 +1,5 @@
 import { createStore, combineReducers } from 'redux';
 import * as reducers from './redux/reducers';
-console.log(reducers);
 
 const reducer = combineReducers(reducers);
 
