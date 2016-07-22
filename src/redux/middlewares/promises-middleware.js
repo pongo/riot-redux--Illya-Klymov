@@ -1,8 +1,15 @@
 const middleware = store => next => action => {
-  if (action.then) {
-    console.log('Promise!');
+  if (!action.then) {
+    return next(action);
   }
-  return next(action);
+
+  const [startAction, successAction, failureAction] = action.actions;
+  store.dispatch({type: startAction});
+
+  action.promise.then(
+    (data) => store.dispatch({type: successAction, data}),
+    (error) => store.dispatch({type: failureAction, error})
+  );
 };
 
 export default middleware;

@@ -28,7 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
       {id: 2, name: 'Second issue'},
     ]
   });
-  store.dispatch(getIssues());
+  store.dispatch({
+    type: 'PROMISE',
+    actions: ['ISSUES_LOADING', 'ISSUES_LOADED', 'ISSUES_LOAD_FAILURE'],
+    promise: getIssues()
+  });
 });
 
 
